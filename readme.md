@@ -38,7 +38,8 @@ Un cop fet això podeu tornar a la pàgina de *Code* i a la secció *About* a la
 ![Captura de pantalla 2025-04-29 120254](https://github.com/user-attachments/assets/d379cfbd-12fe-43e1-8362-8f145d549e07)
 
 L'últim pas és anar a la configuració de l'usuari que és el propietari de l'organització i anar a *Developer setting* (a baix de tot).
-![Captura de pantalla 2025-04-29 120627](https://github.com/user-attachments/assets/a764257f-7d53-4378-9964-1cccca150e6d)
+
+![Captura de pantalla 2025-04-29 120627](https://github.com/user-attachments/assets/46ec09f1-5d48-4141-ba7c-99daac57adef)
 
 Un cop a *Developer setting*, heu d'anar *Personal access tokens* i *Fine-graiend tokens*, i donar-li a *Generate new token*. Si no heu creat mai cap, es veurà com la primera captura, si ja heu creat algun, es veurà com a la segona.
 
