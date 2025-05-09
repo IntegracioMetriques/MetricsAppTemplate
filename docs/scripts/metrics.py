@@ -144,8 +144,6 @@ def get_metrics():
        metrics = instance.execute(data,metrics,members)
     with open(metrics_path, "w") as f:
         json.dump(metrics, f, indent=4)
-    with open("data.json", "w") as f:
-        json.dump(data, f, indent=4)
 
 def daily_metrics():
     metrics_path = "../metrics.json"
