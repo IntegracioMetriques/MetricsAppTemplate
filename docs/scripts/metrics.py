@@ -54,14 +54,14 @@ def validar_config(config):
     if config["members"] not in valid_members:
         raise ConfigError(f"Error: El camp obligatori 'members' de config.json no té un valor vàlid. Valors vàlids: {valid_members}")
     
-def make_api_calls(repo,instances,headers):
+def make_api_calls(repo,instances,project_number,headers):
     local_data = {}
     if not PARALLELISM:
         for instance in instances:
-            local_data = instance.execute(REPO_OWNER,repo,headers,local_data)
+            local_data = instance.execute(REPO_OWNER,repo,headers,project_number,local_data)
     else:
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-            futures = [executor.submit(instance.execute, REPO_OWNER, repo, headers, local_data) for instance in instances]
+            futures = [executor.submit(instance.execute, REPO_OWNER, repo, headers, project_number, local_data) for instance in instances]
 
             for future in concurrent.futures.as_completed(futures):
                 local_data = future.result()
@@ -96,13 +96,14 @@ def get_metrics():
         metrics = {}
     data = {}
     instances = []
+    project_number = -1
     if config['metrics_scope'] == "org":
         instancesConfig = []
         instancesConfig.append(GetOrgRepos())
         instancesConfig.append(GetMembers())
-        data = GetOrgRepos().execute(REPO_OWNER,"",HEADERS_ORG,data)
+        data = GetOrgRepos().execute(REPO_OWNER,"",HEADERS_ORG,"",data)
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-            futures = [executor.submit(instance.execute,REPO_OWNER,"",HEADERS_ORG,data) for instance in instancesConfig]
+            futures = [executor.submit(instance.execute,REPO_OWNER,"",HEADERS_ORG,"",data) for instance in instancesConfig]
             for future in concurrent.futures.as_completed(futures):
                 data.update(future.result())  
         if(config["members"] == "both"): instances.append(GetCollaborators())
@@ -126,11 +127,11 @@ def get_metrics():
             instances.append(class_obj(PARALLELISM))
     if not PARALLELISM:
         for repo in repos:
-            result = make_api_calls(repo,instances,HEADERS) 
+            result = make_api_calls(repo,instances,project_number,HEADERS) 
             combinar_resultats(result,data)    
     else:
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-            futures = [executor.submit(make_api_calls, repo, instances, HEADERS) for repo in repos]
+            futures = [executor.submit(make_api_calls, repo, instances,project_number, HEADERS) for repo in repos]
 
             for future in concurrent.futures.as_completed(futures):
                 combinar_resultats(future.result(),data)
