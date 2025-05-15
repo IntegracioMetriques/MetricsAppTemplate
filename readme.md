@@ -108,7 +108,7 @@ Al crear-lo, marqueu la casella *Include all branches*.
 
 En el cas d'un existent, heu de copiar les carpetes d'aquest al repositori del qual voleu les mètriques. Un cop siguin a la branca **main** o **master** del repositori, creeu una branca que es digui **gh-pages**. Si el repo és privat, cal que sigui públic perquè es pugui utilitzar GitHub Pages.
 
-Un creat el repo o la branca, cal anar a la branca **gh-pages**, anar a docs/config.json i canviar a *metrics_scope* i *members* a repo.
+Un cop creat el repo o la branca, cal anar a la branca **gh-pages**, anar a docs/config.json i canviar a *metrics_scope* i *members* a repo.
 
 Després heu d'anar a configuració, i dintre de la categoria *Code and automation*, anar a *Pages*, i un cop a *Pages*, deixeu Source a *Deploy from a branch*, i a branch poseu la branca **gh-pages** i canvieu la carpeta de /(root) a /docs i cliqueu save.
 

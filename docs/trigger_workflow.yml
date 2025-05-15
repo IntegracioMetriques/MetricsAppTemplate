@@ -2,7 +2,7 @@ name: Trigger remote workflow
 on:
   push:
   issues:
-    types: [opened, edited, closed]
+    types: [opened, edited, closed, assigned, unassigned]
   pull_request:
     types: [opened,edited,closed]
   workflow_dispatch:
