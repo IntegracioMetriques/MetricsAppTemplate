@@ -24,7 +24,13 @@ Per continuar, cal anar a la branca **gh-pages**, o si no s'ha marcat la casella
 
 En la següent imatge he posat un exemple, on el meu repositori per a les mètriques es diu Metrics i hi ha un bot i un professor:
 
-![Captura de pantalla 2025-04-30 000026](https://github.com/user-attachments/assets/03ce013e-89f7-4939-acae-a35d9da83745)
+![Captura de pantalla 2025-06-19 122837](https://github.com/user-attachments/assets/bb9bf813-591c-4e51-849d-baa3f888de51)
+
+En el cas d’utilitzar GitHub Projects, cal anar al GitHub project que es vol i mirar la URL, que contindra un nombre al final, com es veu a la imatge següent:
+
+![Captura de pantalla 2025-06-12 141150](https://github.com/user-attachments/assets/3d98f01b-7be1-4c1a-b8c0-1b9f12c27622)
+
+Cal copiar aquest nombre, que es el identificador del projecte, i enganxar-lo al camp del config Project_number, que per defecte és -1 si no hi ha cap project configurat.
 
 Després heu d'anar a configuració, i dintre de la categoria *Code and automation*, anar a *Pages*, i un cop a *Pages*, deixeu Source a *Deploy from a branch*, i a branch poseu la branca **gh-pages** i canvieu la carpeta de /(root) a /docs i cliqueu save.
 
@@ -70,12 +76,13 @@ A *Organization permissions* heu de seleccionar:
 
 -Members: read-only
 
+-Projects: read-only
+
 Si ho heu seleccionat tot bé, quan li doneu a Generate token, us sortiran els permisos següents:
 
 ![Captura de pantalla 2025-04-29 120918](https://github.com/user-attachments/assets/6f74f981-95da-4964-9e4d-74568505bffb)
 
-![Captura de pantalla 2025-04-29 120922](https://github.com/user-attachments/assets/4b60b281-0d0a-4c16-9204-16ff941cd3d2)
-
+![Captura de pantalla 2025-06-19 123302](https://github.com/user-attachments/assets/cc2dcade-5e2d-4aac-a931-ea1b08aa457b)
 
 Un cop generat, copieu el token temporalment a algun lloc, com a un arxiu de text, perquè un cop sortiu de la pàgina ja no podreu veure'l més.
 
