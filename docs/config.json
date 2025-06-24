@@ -3,7 +3,7 @@
     "members":"org",
     "project_number": -1,
     "features":[
-        "issues","pull-requests"
+        "issues","pull-requests","projects"
     ],
     "excluded_members": [
     ],
